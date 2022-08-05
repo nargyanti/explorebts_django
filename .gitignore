@@ -1,2 +1,6 @@
 /db.sqlite3
 /env
+/explorebts_django/__pychache__
+/home/__pychache__
+/products/__pychache__
+/auth/__pychache__
