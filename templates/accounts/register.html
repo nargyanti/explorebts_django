@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock title %}
+{% block content %}
+<div class="card mx-auto my-3" style="width: 30rem;">
+    <div class="card-body">
+        <h1 class="card-title text-center">Register</h1>
+        <form class="card-text" method="post">
+            {% include 'components/alert.html' %}
+            {% csrf_token %}            
+            <div class="mb-3">
+                <label for="id_{{ form.username.name }}" class="form-label">{{ form.username.label }}</label>                
+                <input type="text" class="form-control" id="id_{{ form.username.name }}" name="{{ form.username.name }}" value="{{ form.username.value|default:'' }}">
+            </div>
+            <div class="mb-3">
+                <label for="id_{{ form.email.name }}" class="form-label">{{ form.email.label }}</label>                
+                <input type="email" class="form-control" id="id_{{ form.email.name }}" name="{{ form.email.name }}" value="{{ form.email.value|default:'' }}">
+            </div>
+            <div class="mb-3">
+                <label for="id_{{ form.password1.name }}" class="form-label">{{ form.password1.label }}</label>                
+                <input type="password" class="form-control" id="id_{{ form.password1.name }}" name="{{ form.password1.name }}" value="{{ form.password1.value|default:'' }}">
+            </div>
+            <div class="mb-3">
+                <label for="id_{{ form.password2.name }}" class="form-label">{{ form.password2.label }}</label>                
+                <input type="password" class="form-control" id="id_{{ form.password2.name }}" name="{{ form.password2.name }}" value="{{ form.password2.value|default:'' }}">                 
+            </div>
+            <p>Already registered? <a href="{% url 'login' %}">Log In now!</a></p>           
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
